@@ -154,3 +154,126 @@ const powNumber = numbers => {
 };
 
 powNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+// Crea una función que reciba una palabra e imprima por consola esa palabra pero con las vocales en mayúscula.
+
+const vowelsInUpperCase = word => {
+  let newWord = '';
+  for (const letter of word) {
+    if (
+      letter === 'a' ||
+      letter === 'e' ||
+      letter === 'i' ||
+      letter === 'o' ||
+      letter === 'u'
+    ) {
+      newWord += letter.toUpperCase();
+    } else {
+      newWord += letter.toLowerCase();
+    }
+  }
+  console.log(newWord);
+};
+vowelsInUpperCase('ejercicio');
+
+// Crea una función que reciba una frase e imprima el número de veces que se repite cada vocal, por ejemplo para la frase "Enrique ordeña cabras", el resultado por consola debe ser:
+//   a: 3,
+//   e: 3,
+//   i: 1,
+//   o: 1,
+//   u: 1
+const numbersOfVowels = phrase => {
+  let vocalA = 0;
+  let vocalE = 0;
+  let vocalI = 0;
+  let vocalO = 0;
+  let vocalU = 0;
+  for (const letter of phrase) {
+    if (letter === 'a' || letter === 'A') {
+      vocalA++;
+    } else if (letter === 'e' || letter === 'E') {
+      vocalE++;
+    } else if (letter === 'i' || letter === 'I') {
+      vocalI++;
+    } else if (letter === 'o' || letter === 'O') {
+      vocalO++;
+    } else if (letter === 'u' || letter === 'U') {
+      vocalU++;
+    }
+  }
+  console.log('a: ' + vocalA);
+  console.log('e: ' + vocalE);
+  console.log('i: ' + vocalI);
+  console.log('o: ' + vocalO);
+  console.log('u: ' + vocalU);
+};
+numbersOfVowels('Enrique ordeña cabras');
+
+// Crea una función que reciba dos palabras e intercale las letras de cada una para formar una nueva palabra. Si la función recibe (hola, adios) el resultado será "haodliao", pero si recibe (adios, hola) el resultado será "ahdoiloa"
+
+const interspersedWords = (word1, word2) => {
+  let newWord = '';
+  let shortestWord;
+  if (word1.length > word2.length) {
+    shortestWord = word2;
+  } else {
+    shortestWord = word1;
+  }
+  for (let i = 0; i < shortestWord.length; i++) {
+    newWord += word1[i] + word2[i];
+  }
+  console.log(newWord);
+};
+interspersedWords('hola', 'adios');
+
+// Crea una función que reciba una palabra e imprima la misma palabra en orden inverso conservando las mayúsculas y las minúsculas. Si recibe "Mariposas" deberá imprimir "sasopiraM"
+
+const reverseWord = word => {
+  let newWord = '';
+  for (let i = word.length - 1; i >= 0; i--) {
+    newWord = newWord + word.charAt(i);
+  }
+  console.log(newWord);
+};
+
+reverseWord('Mariposas');
+
+// Crea una función que reciba un array de 10 números. Dentro de esa función crea dos arrays vacíos llamados even (pares) y odd (impares), después multiplica cada uno de los números del array recibido por un número aleatorio entre 1 y 10, si el resultado es par, guárdalo en el array de pares, si es impar, en el array de impares, al final, imprime los 3 arrays por consola.
+
+const evenOddNumbers = numbers => {
+  let even = [];
+  let odd = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    const randomNumber = Math.floor(Math.random() * numbers.length);
+    const resultNumber = randomNumber * numbers[i];
+
+    if (resultNumber % 2 === 0) {
+      even.push(resultNumber);
+    } else {
+      odd.push(resultNumber);
+    }
+  }
+
+  console.log(numbers);
+  console.log(even);
+  console.log(odd);
+};
+
+evenOddNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+// Crea una función que reciba un array con 5 palabras, debes imprimir por consola un array que contenga la inicial y la última letra de cada palabra en mayúsculas, es decir, si nuestra función recibiera un array con ['hola', 'adios', 'gato', 'perro', 'casa'] deberá imprimir por consola ['H', 'A', 'A', 'S', 'G', 'O', 'P','O', 'C', 'A']
+
+const firstLastLetters = words => {
+  let newArray = [];
+  for (let i = 0; i < words.length; i++) {
+    newArray.push(
+      words[i].charAt(0).toUpperCase(),
+      words[i].charAt(words[i].length - 1).toUpperCase()
+    );
+  }
+
+  console.log(newArray);
+};
+
+firstLastLetters(['hola', 'adios', 'gato', 'perro', 'casa']);
